@@ -13,8 +13,7 @@ class Student:
         self.classroom = classroom
         self.bus = bus
         self.GPA = GPA
-        self.teacherLastName = teacherLastName
-        self.teacherFirstName = teacherFirstName
+
 
 
 class TestSimonFuncs(unittest.TestCase):
@@ -118,6 +117,34 @@ def searchAverageR10(students, number):
     return avgData
 
 
+
+def searchNR1(students, classroom):
+    for student in students:
+        if student.classroom == classroom:
+            print("First Name: {}\nLast Name: {}\nGrade: {}\nClassroom: {}\nBus: {}\nGPA: {}\n",
+            student.firstName,
+            student.lastName,
+            student.grade,
+            student.classroom,
+            student.bus,
+            student.GPA)
+
+
+
+
+def searchNR2(teachers, classroom):
+    pass
+
+
+def busFactors(bus, students, flag):
+    # If flag == "G:" or "GPA:", calculate average gpa of bus riders
+
+    
+    # If flag == "Student:" or "S:" calculate number of students who take bus route
+    
+    
+    # If flag == "G:" or "Grade:" calculate the average grade level students on bus route 
+    pass
 
 
 
