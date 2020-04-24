@@ -117,7 +117,7 @@ def searchAverageR10(students, number):
     return avgData
 
 
-
+# Function takes in students, prints students with matching classroom
 def searchNR1(students, classroom):
     for student in students:
         if student.classroom == classroom:
@@ -131,22 +131,60 @@ def searchNR1(students, classroom):
 
 
 
-
+# Takes in teachers, prints teachers in matching classroom
 def searchNR2(teachers, classroom):
-    pass
+    for teacher in teachers:
+        if teacher.classroom == classroom:
+            print("Teacher First Name: {}\nTeacher Last Name: {}\nClassroom: {}\n", teacher.firstName, teacher.lastName, teacher.classroom)
 
-
+# Function provides relevant info on bus factors for student performance
 def busFactors(bus, students, flag):
-    # If flag == "G:" or "GPA:", calculate average gpa of bus riders
+    # If flag == "GPA:", calculate average gpa of bus riders
+    if flag == "GPA:":
+        sumGPA = 0
+        studentsonBus = 0
+        for student in students:
+            if student.bus == bus:
+                sumGPA += student.GPA
+                studentsonBus+= 1
+        if studentsonBus != 0:
+            avgGpa = sumGPA / studentsonBus
+            print("Average GPA on Bus: {} is {}\n", bus, avgGpa)
+        else:
+            avgGpa = 0
+            print("Average GPA on Bus: {} is {}\n", bus, avgGpa)
+
+        return
 
     
     # If flag == "Student:" or "S:" calculate number of students who take bus route
     
+    if flag == "S:" or flag == "Stuent:":
+        studentsonBus = 0
+        for student in students:
+            if student.bus == bus:
+                studentsonBus +=1
+
+        print("Number of students on Bus {}: {}", bus, studentsonBus)
+        return 
     
     # If flag == "G:" or "Grade:" calculate the average grade level students on bus route 
-    pass
+    if flag == "G:" or flag == "Grade:":
+        sumGrade = 0
+        numStudents = 0
+        for students in students:
+            if students.bus == bus:
+                sumGrade += student.grade
+                numStudents += 1
 
-
+        if numStudents != 0:
+            avgGrade = sumGrade / numStudents
+            print("Average grade of students on Bus {}: {}", bus, avgGrade)
+            return
+        else:
+            avgGrade = 0
+            print("Average grade of students on Bus {}: {}", bus, avgGrade)
+            return
 
 if __name__ == "__main__":
     unittest.main()
