@@ -75,6 +75,12 @@ def main():
 
         elif userInput == "I" or userInput == "Info":
             searchInfo(students)
+        elif userInput == "gradeFactor:" or userInput == "gF":
+            pass
+        elif userInput == "busFactor:" or userInput == "bF:":
+            pass
+        elif userInput == "teacherFactor:" or userInput == "tF:":
+            pass
         else:
             print("Bad command")
             continue
