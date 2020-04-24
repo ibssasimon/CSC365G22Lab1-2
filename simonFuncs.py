@@ -53,7 +53,7 @@ def searchGradeR7(students, number):
 
     return returnString
 #R9 function takes in a number and high/low. Returns student in same grade with lowest or highest GPA
-def searchGradeR9(students, number, flag):
+def searchGradeR9(students, teachers, number, flag):
     studentsInSameGrade = []
     high = 0
     low = 0
@@ -81,13 +81,17 @@ def searchGradeR9(students, number, flag):
             if s.GPA > curr.GPA:
                 curr = s
 
-    print("Name: " + curr.firstName + " " + curr.lastName)
-    print("GPA: " + str(curr.GPA))
-    print("Teacher: " + curr.teacherFirstName + " " + curr.teacherLastName)
-    print("Bus: " + str(curr.bus))
-    studentGPA = "Name: {} {}\nGPA: {}\nTeacher: {} {}\nBus: {}".format(curr.firstName, curr.lastName, curr.GPA, curr.teacherFirstName, curr.teacherLastName, curr.bus)
+    
 
-    return studentGPA
+    for teacher in teachers:
+        if teacher.classroom == curr.classroom:
+            print("Name: " + curr.firstName + " " + curr.lastName)
+            print("GPA: " + str(curr.GPA))
+            print("Teacher: " + teacher.firstName + " " + teacher.lastName)
+            print("Bus: " + str(curr.bus))
+            studentGPA = "Name: {} {}\nGPA: {}\nTeacher: {} {}\nBus: {}".format(curr.firstName, curr.lastName, curr.GPA, teacher.firstName, teacher.lastName, curr.bus)
+
+            return studentGPA
 
 
 #R10 function takes in a number and returns the average GPA of all students with matching grade

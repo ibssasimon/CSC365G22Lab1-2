@@ -24,6 +24,8 @@ def main():
     #Populate data from text file
     students = populateStudents("list.txt")
     teachers = populateTeachers("teachers.txt")
+    
+
     # Ask for user input until user quits
     while(1):
         
@@ -44,7 +46,7 @@ def main():
         elif userInput == "S:" or userInput == "Student:":
             if(len(args) == 2):
                 # 1 additional argument passed in
-                searchStudent(students, args[1])
+                searchStudent(students, teachers, args[1])
             elif(len(args) == 3):
                 # 2 addtional arguments passed in
                 # Might have to parse for "B" in bus
@@ -55,13 +57,12 @@ def main():
 
         
         elif userInput == "T:" or userInput == "Teacher:":
-            searchTeacher(students, args[1])
-        
+            searchTeacher(students, teachers,  args[1])
         elif userInput == "G:" or userInput == "Grade:":
             if len(args) == 2:
                 searchGradeR7(students, int(args[1]))
             else:
-                searchGradeR9(students, int(args[1]), args[2])
+                searchGradeR9(students, teachers, int(args[1]), args[2])
 
         elif userInput == "B:" or userInput == "Bus:":
             if len(args) == 2:
@@ -98,12 +99,12 @@ def populateStudents(fileName1):
         studentRawData = studentLine.strip() 
         studentInfo = studentRawData.split(",")
         try:
-            lastName = studentInfo[0]
-            firstName = studentInfo[1]
-            grade = studentInfo[2]
-            classroom = studentInfo[3]
-            bus = studentInfo[4]
-            GPA = studentInfo[5]
+            lastName = studentInfo[0].strip()
+            firstName = studentInfo[1].strip()
+            grade = studentInfo[2].strip()
+            classroom = studentInfo[3].strip()
+            bus = studentInfo[4].strip()
+            GPA = studentInfo[5].strip()
             
             myStudent = Student(lastName, firstName, grade, classroom, bus, GPA)
             students.append(myStudent)
@@ -125,11 +126,12 @@ def populateTeachers(fileName2):
 
     for teacherLine in lines:
         teacherRawData = teacherLine.strip() 
-        teacherInfo = teacherRawData.split(",")
+        teacherInfo = teacherRawData.split(", ")
+
         try:
-            lastName = teacherInfo[0]
-            firstName = teacherInfo[1]
-            classroom = teacherInfo[2]
+            lastName = teacherInfo[0].strip()
+            firstName = teacherInfo[1].strip()
+            classroom = teacherInfo[2].strip()
             
             myTeacher = Teacher(lastName, firstName, classroom)
             teachers.append(myTeacher)
