@@ -34,4 +34,15 @@ def searchBus(students, bus):
 			print("Student Grade: " + student.grade)
 			print("Student Classroom: " + student.classroom)	
 
-    
+
+def reportEnrollment(students):
+	enroll = {}
+
+	for student in students:
+		if student.classroom in enroll:
+			enroll[student.classroom] += 1
+		else:
+			enroll[student.classroom] = 1
+
+	for key in sorted(enroll.keys()):
+		print(str(key) + ": " + str(enroll[key]))

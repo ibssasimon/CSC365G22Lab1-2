@@ -1,5 +1,4 @@
-from arvindFuncs import searchInfo
-from arvindFuncs import searchBus
+from arvindFuncs import *
 from simonFuncs import *
 from ericFuncs import *
 
