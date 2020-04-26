@@ -57,6 +57,7 @@ def main():
         
         elif userInput == "T:" or userInput == "Teacher:":
             searchTeacher(students, teachers,  args[1])
+
         elif userInput == "G:" or userInput == "Grade:":
             if len(args) == 2:
                 searchGradeR7(students, int(args[1]))
@@ -75,8 +76,17 @@ def main():
         elif userInput == "I" or userInput == "Info":
             searchInfo(students)
 
+        elif userInput == "NR1:":
+            pass
+
+        elif userInput == "NR2:":
+            pass
+
         elif userInput == "NR3:":
             reportEnrollment(students)
+
+        elif userInput == "NR4:":
+            pass
 
         elif userInput == "gradeFactor:" or userInput == "gF:":
             if args[1] == "GPA":
@@ -88,13 +98,15 @@ def main():
 
         elif userInput == "busFactor:" or userInput == "bF:":
             pass
+
         elif userInput == "teacherFactor:" or userInput == "tF:":
             pass
+
         else:
             print("Bad command")
             continue
 
-        
+
 
 
 
