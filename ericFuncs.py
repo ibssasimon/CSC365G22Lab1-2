@@ -47,4 +47,5 @@ def searchTeacherFactor(students, teachers, lastName):
                     numStudents += 1
                     totalGPA += student.GPA
             averageGPA = round((totalGPA / numStudents), 2)
-            print(teacher.lastName + ", " + teacher.firstName + " has " + numStudents + " in classroom " + classroom + " with an average GPA of " + averageGPA + "\n")
+            print(teacher.lastName + ", " + teacher.firstName + " has " + numStudents + 
+                " in classroom " + classroom + " with an average GPA of " + averageGPA + "\n")
