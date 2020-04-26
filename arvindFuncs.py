@@ -46,3 +46,49 @@ def reportEnrollment(students):
 
 	for key in sorted(enroll.keys()):
 		print(str(key) + ": " + str(enroll[key]))
+
+def gradeFactorsGPA(students, grade):
+	totalGPA = 0
+	totalStudents = 0
+
+	for student in students:
+		if student.grade == grade:
+			totalGPA += float(student.GPA)
+			totalStudents += 1
+
+	if totalStudents == 0:
+		print("No students in this grade!")
+	else:
+		averageGPA = round(totalGPA / totalStudents, 3)
+		print("Average GPA for grade " + grade + " is " + str(averageGPA))
+
+
+def gradeFactorsBus(students, grade):
+	routes = {}
+
+	for student in students:
+		if student.grade == grade:
+			if student.bus in routes:
+				routes[student.bus] += 1
+			else:
+				routes[student.bus] = 1
+
+	print("Bus routes and number of students who take them in grade " + str(grade))
+
+	for key in sorted(routes.keys()):
+		print(str(key) + ": " + str(routes[key]))
+
+def gradeFactorsTeacher(students, teachers, grade):
+	classroom = {}
+
+	for student in students:
+		if student.grade == grade:
+			if student.classroom in classroom:
+				classroom[student.classroom] += 1
+			else:
+				classroom[student.classroom] = 1
+
+	for key in classroom.keys():
+		for teacher in teachers:
+			if key == teacher.classroom:
+				print("Teacher " + teacher.firstName + " " + teacher.lastName + " has " + str(classroom[key]) + " grade " + grade + " students")
