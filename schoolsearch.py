@@ -74,8 +74,18 @@ def main():
 
         elif userInput == "I" or userInput == "Info":
             searchInfo(students)
-        elif userInput == "gradeFactor:" or userInput == "gF":
-            pass
+
+        elif userInput == "NR3:":
+            reportEnrollment(students)
+
+        elif userInput == "gradeFactor:" or userInput == "gF:":
+            if args[1] == "GPA":
+                gradeFactorsGPA(students, args[2])
+            if args[1] == "Bus":
+                gradeFactorsBus(students, args[2])
+            if args[1] == "Teacher":
+                gradeFactorsTeacher(students, teachers, args[2])
+
         elif userInput == "busFactor:" or userInput == "bF:":
             pass
         elif userInput == "teacherFactor:" or userInput == "tF:":

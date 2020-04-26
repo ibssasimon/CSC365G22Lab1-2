@@ -31,7 +31,7 @@ def searchTeacher(students, teachers, lastName):
 
 def searchTeachersOfGrade(teachers, grade):
     for teacher in teachers:
-        if teacher.grade = grade:
+        if teacher.grade == grade:
             print(" Teacher: " + teacher.lastName + ", " + teacher.firstName + "\n")
 
 def searchTeacherFactor(students, teachers, lastName):
@@ -40,10 +40,10 @@ def searchTeacherFactor(students, teachers, lastName):
     totalGPA = 0
     averageGPA = 0
     for teacher in teachers:
-        if teacher.lastName = lastName:
+        if teacher.lastName == lastName:
             classroom = teacher.classroom
             for student in students:
-                if student.classroom = classroom:
+                if student.classroom == classroom:
                     numStudents += 1
                     totalGPA += student.GPA
             averageGPA = round((totalGPA / numStudents), 2)
