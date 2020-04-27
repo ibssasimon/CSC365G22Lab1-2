@@ -83,7 +83,7 @@ def main():
             searchNR2(teachers, args[1])
 
         elif userInput == "NR3:":
-            gradeFactorsTeacher(students, teachers, args[1])
+            searchTeachersOfGrade(students, teachers, args[1])
         elif userInput == "NR4:":
             reportEnrollment(students)
 

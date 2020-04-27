@@ -29,10 +29,16 @@ def searchTeacher(students, teachers, lastName):
                 if student.classroom == classroom:
                     print("\nStudent: " + student.lastName + ", " +  student.firstName + "\n")
 
-def searchTeachersOfGrade(teachers, grade):
-    for teacher in teachers:
-        if teacher.grade == grade:
-            print(" Teacher: " + teacher.lastName + ", " + teacher.firstName + "\n")
+
+def searchTeachersOfGrade(students, teachers, grade):
+    classroom = 0
+    for student in students:
+        if student.grade == grade:
+            classroom = student.classroom
+            for teacher in teachers:
+                if teacher.classroom == classroom:
+                    print(" Teacher: " + teacher.lastName + ", " + teacher.firstName + " teaches grade " + str(grade) + "\n")
+
 
 def searchTeacherFactor(students, teachers, lastName):
     numStudents = 0
