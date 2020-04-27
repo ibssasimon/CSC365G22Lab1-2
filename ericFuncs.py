@@ -31,13 +31,17 @@ def searchTeacher(students, teachers, lastName):
 
 
 def searchTeachersOfGrade(students, teachers, grade):
+    teachersList = []
     classroom = 0
     for student in students:
         if student.grade == grade:
             classroom = student.classroom
             for teacher in teachers:
                 if teacher.classroom == classroom:
-                    print(" Teacher: " + teacher.lastName + ", " + teacher.firstName + " teaches grade " + str(grade) + "\n")
+                    if teacher not in teachersList:
+                        teachersList.append(teacher)
+    for t in teachersList:
+        print(" Teacher: " + t.lastName + ", " + t.firstName + " teaches grade " + str(grade) + "\n")
 
 
 def searchTeacherFactor(students, teachers, lastName):
