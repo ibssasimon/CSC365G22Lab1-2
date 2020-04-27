@@ -77,18 +77,18 @@ def main():
             searchInfo(students)
 
         elif userInput == "NR1:":
-            pass
+            searchNR1(students, args[1])
 
         elif userInput == "NR2:":
-            pass
+            searchNR2(teachers, args[1])
 
         elif userInput == "NR3:":
+            gradeFactorsTeacher(students, teachers, args[1])
+        elif userInput == "NR4:":
             reportEnrollment(students)
 
-        elif userInput == "NR4:":
-            pass
 
-        elif userInput == "gradeFactor:" or userInput == "gF:":
+        elif userInput == "gradeFactor:":
             if args[1] == "GPA":
                 gradeFactorsGPA(students, args[2])
             if args[1] == "Bus":
@@ -96,11 +96,11 @@ def main():
             if args[1] == "Teacher":
                 gradeFactorsTeacher(students, teachers, args[2])
 
-        elif userInput == "busFactor:" or userInput == "bF:":
-            pass
+        elif userInput == "busFactor:":
+            busFactors(args[2], students, args[1])
 
-        elif userInput == "teacherFactor:" or userInput == "tF:":
-            pass
+        elif userInput == "teacherFactor:":
+            searchTeacherFactor(students, teachers, args[1])
 
         else:
             print("Bad command")
@@ -175,6 +175,17 @@ def writePrompts():
     print("G[rade]: <number> [H[igh]|L[ow]]")
     print("A[verage]: <number>")
     print("I[nfo]")
+    print("NR1: <classroom>")
+    print("NR2: <classroom>")
+    print("NR3: <grade>")
+    print("NR4:")
+    print("gradeFactor: GPA <grade>")
+    print("gradeFactor: Bus <grade>")
+    print("gradeFactor: Teacher <grade>")
+    print("busFactor: GPA <bus>")
+    print("busFactor: Student <bus>")
+    print("busFactor: Grade <bus>")
+    print("teacherFactor: <teacherLastName>")
     print("Q[uit]\n")
 
 

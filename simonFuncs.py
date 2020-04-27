@@ -121,13 +121,14 @@ def searchAverageR10(students, number):
 def searchNR1(students, classroom):
     for student in students:
         if student.classroom == classroom:
-            print("First Name: {}\nLast Name: {}\nGrade: {}\nClassroom: {}\nBus: {}\nGPA: {}\n",
-            student.firstName,
-            student.lastName,
-            student.grade,
-            student.classroom,
-            student.bus,
-            student.GPA)
+            
+            print("First Name: " + student.firstName)
+            print("Last Name: " + student.lastName)
+            print("Grade: " + student.grade)
+            print("Classroom: " + student.classroom)
+            print("Bus: " + student.bus)
+            print("GPA: " + student.GPA)
+            print("\n")
 
 
 
@@ -135,55 +136,61 @@ def searchNR1(students, classroom):
 def searchNR2(teachers, classroom):
     for teacher in teachers:
         if teacher.classroom == classroom:
-            print("Teacher First Name: {}\nTeacher Last Name: {}\nClassroom: {}\n", teacher.firstName, teacher.lastName, teacher.classroom)
+            print("Teacher First Name: " + teacher.firstName)
+            print("Teacher Last Name: " + teacher.lastName)
+            print("Classroom: " + teacher.classroom)
+            print("\n")
 
 # Function provides relevant info on bus factors for student performance
 def busFactors(bus, students, flag):
     # If flag == "GPA:", calculate average gpa of bus riders
-    if flag == "GPA:":
+    if flag == "GPA":
         sumGPA = 0
         studentsonBus = 0
         for student in students:
             if student.bus == bus:
-                sumGPA += student.GPA
+                sumGPA += float(student.GPA)
                 studentsonBus+= 1
         if studentsonBus != 0:
             avgGpa = sumGPA / studentsonBus
-            print("Average GPA on Bus: {} is {}\n", bus, avgGpa)
+            print("Average GPA on Bus: " + bus + " is: " + str(avgGpa))
+            print("\n")
         else:
             avgGpa = 0
-            print("Average GPA on Bus: {} is {}\n", bus, avgGpa)
+            print("Average GPA on Bus: " + bus + " is: " + str(avgGpa))
+            print("\n")
 
         return
 
     
     # If flag == "Student:" or "S:" calculate number of students who take bus route
     
-    if flag == "S:" or flag == "Stuent:":
+    if flag == "S" or flag == "Student":
         studentsonBus = 0
         for student in students:
             if student.bus == bus:
                 studentsonBus +=1
 
-        print("Number of students on Bus {}: {}", bus, studentsonBus)
+        print("Number of Students on Bus: " + bus + " is: " + str(studentsonBus))
+        print("\n")
         return 
     
     # If flag == "G:" or "Grade:" calculate the average grade level students on bus route 
-    if flag == "G:" or flag == "Grade:":
+    if flag == "G" or flag == "Grade":
         sumGrade = 0
         numStudents = 0
-        for students in students:
-            if students.bus == bus:
-                sumGrade += student.grade
+        for student in students:
+            if student.bus == bus:
+                sumGrade += float(student.grade)
                 numStudents += 1
 
         if numStudents != 0:
             avgGrade = sumGrade / numStudents
-            print("Average grade of students on Bus {}: {}", bus, avgGrade)
+            print("Average grade of students on Bus: " + bus+" is: " + str(avgGrade))
             return
         else:
             avgGrade = 0
-            print("Average grade of students on Bus {}: {}", bus, avgGrade)
+            print("Average grade of students on Bus: " + bus+" is: " + str(avgGrade))
             return
 
 if __name__ == "__main__":
